@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import br.com.provider.trilhaProvider.acompanhamento.enums.ContatoGenero;
@@ -34,15 +35,15 @@ public class Contato implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "nome")
     private String nome;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "cpf")
     private String cpf;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "telefone")
     private String telefone;
 
@@ -50,27 +51,27 @@ public class Contato implements Serializable {
     @Column(name = "data_nascimento")
     private Date dataNascimento;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "cep")
     private String cep;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "cidade")
     private String cidade;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "uf")
     private String uf;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "numero")
     private String numero;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "endereco")
     private String endereco;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "bairro")
     private String bairro;
 
@@ -82,11 +83,11 @@ public class Contato implements Serializable {
     @Column(name = "genero")
     private ContatoGenero genero;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "criadorUid")
     private String criadorUid;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "criadorNome")
     private String criadorNome;
 

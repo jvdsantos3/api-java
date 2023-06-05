@@ -30,7 +30,7 @@ public class ContatoController {
 
   @CrossOrigin
   @GetMapping("/{id}")
-  public ResponseEntity<ContatoInfoDto> findById( @PathVariable Long id ) {
+  public ResponseEntity<ContatoInfoDto> findById(@PathVariable Long id) {
     try {
       ContatoInfoDto contato = contatoService.getContatoByID(id);
 
@@ -58,7 +58,7 @@ public class ContatoController {
 
   @CrossOrigin
   @GetMapping("filtro")
-  public ResponseEntity<List<ContatoInfoDto>> searchByNome( @RequestParam String nome ) {
+  public ResponseEntity<List<ContatoInfoDto>> searchByNome(@RequestParam String nome) {
     try {
       List<ContatoInfoDto> contatos = contatoService.searchByNome(nome);
 
@@ -72,7 +72,7 @@ public class ContatoController {
   @CrossOrigin
   @ResponseStatus(HttpStatus.CREATED)
   @PostMapping
-  public ResponseEntity<ContatoInfoDto> createNewContato( @RequestBody ContatoDto contato ) {
+  public ResponseEntity<ContatoInfoDto> createNewContato(@RequestBody ContatoDto contato) {
     try {
       System.out.println(contato);
       ContatoInfoDto contatoInfoDto = contatoService.saveContato(contato);
@@ -85,11 +85,11 @@ public class ContatoController {
 
   @CrossOrigin
   @PutMapping("/{id}")
-  public ResponseEntity<ContatoInfoDto> updateContato( @RequestBody ContatoDto contato, @PathVariable Long id ) {
+  public ResponseEntity<ContatoInfoDto> updateContato(@RequestBody ContatoDto contato, @PathVariable Long id) {
     try {
       ContatoInfoDto contatoInfoDto = contatoService.updateById(contato, id);
 
-      if(contatoInfoDto == null) {
+      if (contatoInfoDto == null) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
       }
 
@@ -103,7 +103,7 @@ public class ContatoController {
   @CrossOrigin
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public ResponseEntity<Void> deleteContato( @PathVariable Long id ) {
+  public ResponseEntity<Void> deleteContato(@PathVariable Long id) {
     try {
       contatoService.deleteContato(id);
 

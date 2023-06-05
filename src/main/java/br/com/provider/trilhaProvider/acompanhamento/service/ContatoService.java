@@ -54,35 +54,35 @@ public class ContatoService {
 
   public ContatoInfoDto updateById(ContatoDto contatoDto, Long id) {
     return contatoRepository
-      .findById(id)
-      .map( model -> {
-        model.setNome(contatoDto.getNome());
-        model.setCpf(contatoDto.getCpf());
-        model.setTelefone(contatoDto.getTelefone());
-        model.setDataNascimento(contatoDto.getData_nascimento());
-        model.setCep(contatoDto.getCep());
-        model.setCidade(contatoDto.getCidade());
-        model.setUf(contatoDto.getUf());
-        model.setNumero(contatoDto.getNumero());
-        model.setEndereco(contatoDto.getEndereco());
-        model.setBairro(contatoDto.getBairro());
-        model.setComplemento(contatoDto.getComplemento());
-        model.setGenero(contatoDto.getGenero());
+        .findById(id)
+        .map(model -> {
+          model.setNome(contatoDto.getNome());
+          model.setCpf(contatoDto.getCpf());
+          model.setTelefone(contatoDto.getTelefone());
+          model.setDataNascimento(contatoDto.getData_nascimento());
+          model.setCep(contatoDto.getCep());
+          model.setCidade(contatoDto.getCidade());
+          model.setUf(contatoDto.getUf());
+          model.setNumero(contatoDto.getNumero());
+          model.setEndereco(contatoDto.getEndereco());
+          model.setBairro(contatoDto.getBairro());
+          model.setComplemento(contatoDto.getComplemento());
+          model.setGenero(contatoDto.getGenero());
 
-        return contatoToContatoInfoDto(contatoRepository.save(model));
-      } )
-      .orElseThrow(() -> new RuntimeException("ID do contato inválido."));
+          return contatoToContatoInfoDto(contatoRepository.save(model));
+        })
+        .orElseThrow(() -> new RuntimeException("ID do contato inválido."));
   }
 
   public void deleteContato(Long id) {
     contatoRepository
-      .findById(id)
-      .map( contato -> {
-        contatoRepository.delete(contato);
-        
-        return contato;
-      } )
-      .orElseThrow(() -> new RuntimeException("ID do contato inválido."));
+        .findById(id)
+        .map(contato -> {
+          contatoRepository.delete(contato);
+
+          return contato;
+        })
+        .orElseThrow(() -> new RuntimeException("ID do contato inválido."));
   }
 
   private Contato contatoDtoToContato(ContatoDto contatoDto) {
