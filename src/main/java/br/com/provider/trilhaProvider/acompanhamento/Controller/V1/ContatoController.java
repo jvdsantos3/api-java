@@ -29,7 +29,7 @@ public class ContatoController {
   private ContatoService contatoService;
 
   @CrossOrigin
-  @GetMapping("/{id}")
+  @GetMapping("{id}")
   public ResponseEntity<ContatoInfoDto> findById(@PathVariable Long id) {
     try {
       ContatoInfoDto contato = contatoService.getContatoByID(id);
@@ -84,7 +84,7 @@ public class ContatoController {
   }
 
   @CrossOrigin
-  @PutMapping("/{id}")
+  @PutMapping("{id}")
   public ResponseEntity<ContatoInfoDto> updateContato(@RequestBody ContatoDto contato, @PathVariable Long id) {
     try {
       ContatoInfoDto contatoInfoDto = contatoService.updateById(contato, id);
