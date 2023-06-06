@@ -38,11 +38,11 @@ public class ContatoService {
         .orElse(null);
   }
 
-  public List<ContatoInfoDto> GetAllContatos() {
-    return contatoListToContatoInfoDtoList(contatoRepository.findAll());
-  }
+  public List<ContatoInfoDto> getContatos(String nome) {
+    if (nome == null) {
+      return contatoListToContatoInfoDtoList(contatoRepository.findAll());
+    } 
 
-  public List<ContatoInfoDto> searchByNome(String nome) {
     return contatoListToContatoInfoDtoList(contatoRepository.findAllByNomeContains(nome));
   }
 

@@ -45,28 +45,15 @@ public class ContatoController {
   }
 
   @CrossOrigin
-  @GetMapping("")
-  public ResponseEntity<List<ContatoInfoDto>> getAllContatos() {
+  @GetMapping
+  public ResponseEntity<List<ContatoInfoDto>> getContatos( @RequestParam(required = false) String nome ) {
     try {
-      List<ContatoInfoDto> contatos = contatoService.GetAllContatos();
+      List<ContatoInfoDto> contatos = contatoService.getContatos(nome);
 
       return new ResponseEntity<>(contatos, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-  }
-
-  @CrossOrigin
-  @GetMapping("filtro")
-  public ResponseEntity<List<ContatoInfoDto>> searchByNome(@RequestParam String nome) {
-    try {
-      List<ContatoInfoDto> contatos = contatoService.searchByNome(nome);
-
-      return new ResponseEntity<>(contatos, HttpStatus.OK);
-    } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
-
   }
 
   @CrossOrigin
