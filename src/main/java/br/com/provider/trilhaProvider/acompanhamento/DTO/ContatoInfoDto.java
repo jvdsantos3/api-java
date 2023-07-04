@@ -1,6 +1,6 @@
 package br.com.provider.trilhaProvider.acompanhamento.DTO;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.Data;
 
@@ -15,7 +15,7 @@ public class ContatoInfoDto {
 
   private String telefone;
 
-  private Date data_nascimento;
+  private LocalDate data_nascimento;
 
   private String cep;
 

@@ -61,7 +61,6 @@ public class ContatoController {
   @PostMapping
   public ResponseEntity<ContatoInfoDto> createNewContato(@RequestBody ContatoDto contato) {
     try {
-      System.out.println(contato);
       ContatoInfoDto contatoInfoDto = contatoService.saveContato(contato);
 
       return new ResponseEntity<>(contatoInfoDto, HttpStatus.CREATED);

@@ -9,7 +9,7 @@ contato				tb_Contato				contato				contato
 package br.com.provider.trilhaProvider.acompanhamento.Models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -49,7 +49,7 @@ public class Contato implements Serializable {
 
     @NotNull
     @Column(name = "data_nascimento")
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
     @NotEmpty
     @Column(name = "cep")
